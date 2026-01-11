@@ -19,7 +19,7 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag my-react-app ${{ secrets.DOCKER_USER }}/mytextoperator:latest
+          docker tag textoperator ${{ secrets.DOCKER_USER }}/mytextoperator:latest
           docker push ${{ secrets.DOCKER_USER }}/mytextoperator:latest
 
 
