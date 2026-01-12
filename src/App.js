@@ -23,7 +23,10 @@ function App() {
         document.body.style.backgroundColor = clr;
         document.body.style.color = 'white'
       }
-      else document.body.style.backgroundColor = clr;
+      else{
+        document.body.style.backgroundColor = clr;
+        document.body.style.color = 'black';  
+      } 
   };
   return (
     <>
