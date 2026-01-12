@@ -25,7 +25,7 @@ function App() {
       }
       else{
         document.body.style.backgroundColor = clr;
-        document.body.style.color = 'black';  
+        // document.body.style.color = 'black';  
       } 
   };
   return (
