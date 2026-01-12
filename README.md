@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+# Text Operator 🚀  
+**React • Docker • GitHub Actions • CI/CD**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Text Operator is a React-based web application that allows users to perform common text transformations and analysis.  
+The project is fully containerized using Docker and deployed using an automated CI/CD pipeline with GitHub Actions.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- Convert text to **uppercase**
+- Convert text to **lowercase**
+- Remove **all extra spaces**
+- Trim **leading and trailing spaces**
+- Display **word count** and **character count**
+- Estimate **reading time**
+- Responsive and clean UI
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Tech Stack
 
-### `npm test`
+- **Frontend:** React
+- **Containerization:** Docker (multi-stage build)
+- **Web Server:** Nginx
+- **CI/CD:** GitHub Actions
+- **Container Registry:** Docker Hub
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧠 Project Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React Source Code
+↓
+Docker Multi-stage Build
+↓
+Nginx (Production Server)
+↓
+Docker Image
+↓
+GitHub Actions (CI/CD)
+↓
+Docker Hub
+↓
+Running Container
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+````
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🐳 Docker Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Build the Docker image locally
+```bash
+docker build -t textoperator .
+````
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Run the container
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+docker run -d -p 80:80 --name mytextoperator textoperator
+```
 
-## Learn More
+Open in browser:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+http://localhost
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🔄 CI/CD Pipeline (GitHub Actions)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Triggered on every push to the `main` branch
+* Automatically:
 
-### Analyzing the Bundle Size
+  * Builds the Docker image
+  * Logs into Docker Hub securely using GitHub Secrets
+  * Pushes the image to Docker Hub
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Secrets Used
 
-### Making a Progressive Web App
+* `DOCKER_USER`
+* `DOCKER_PASS` (Docker Hub Personal Access Token)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+No secrets are committed to the repository.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📦 Docker Hub Image
 
-### Deployment
+Pull the image directly from Docker Hub:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+docker pull prashant2496/mytextoperator:latest
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔐 Security Practices
+
+* Docker credentials stored securely using **GitHub Secrets**
+* No hard-coded secrets in code or workflows
+* GitHub Secret Scanning & Push Protection enabled
+
+---
+
+## 📚 What I Learned
+
+* React production build lifecycle
+* Docker multi-stage builds
+* CI/CD automation with GitHub Actions
+* Secure secret management
+* Debugging real-world CI/CD pipeline issues
+* Container lifecycle management
+
+---
+
+## 🚀 Future Enhancements
+
+* Deploy on AWS EC2
+* Add HTTPS with Let’s Encrypt
+* Integrate backend APIs (Node.js)
+* Use Docker Compose for multi-service setup
+
+---
+
+## 👤 Author
+
+**Prashant Narwade**
+Aspiring Backend & DevOps Engineer
+Learning by building 🚀
